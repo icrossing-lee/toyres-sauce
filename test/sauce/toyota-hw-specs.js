@@ -56,6 +56,13 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
         done();
     });
 
+    after(function(done) {
+        browser
+            .quit()
+            .sauceJobStatus(allPassed)
+            .nodeify(done);
+    });
+
     it("should load Toyota Yaris MLP", function(done) {
         browser
             .get("http://toyota.com/yaris")
@@ -103,45 +110,9 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
             .text().should.become("MAGNETIC GRAY METALLIC")
             .nodeify(done);
     });
-});
-
-describe('MLP Color Selector Other Colors (' + desired.browserName + ')', function() {
-    var browser;
-    var allPassed = true;
-
-    before(function(done) {
-        var username = process.env.SAUCE_USERNAME;
-        var accessKey = process.env.SAUCE_ACCESS_KEY;
-        browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
-        if(process.env.VERBOSE){
-            // optional logging     
-            browser.on('status', function(info) {
-                console.log(info.cyan);
-            });
-            browser.on('command', function(meth, path, data) {
-                console.log(' > ' + meth.yellow, path.grey, data || '');
-            });            
-        }
-        browser
-            .init(desired)
-            .nodeify(done);
-    });
-
-    afterEach(function(done) {
-        allPassed = allPassed && (this.currentTest.state === 'passed');  
-        done();
-    });
-
-    after(function(done) {
-        browser
-            .quit()
-            .sauceJobStatus(allPassed)
-            .nodeify(done);
-    });
 
     it("should be able to select Classic Silver Metallic", function(done) {
         browser
-            .get("http://toyota.com/yaris")
             .elementByXPath(".//li[2]/i")
             .click()
             .nodeify(done);
