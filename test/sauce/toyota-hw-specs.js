@@ -64,10 +64,9 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
             .nodeify(done);
     });
 
-    it("should display the default jelly as Super White", function(done) {
+    it("should display the default jelly", function(done) {
         browser
             .elementByClassName("is-on")
-            .getAttribute("data-code").should.become("040")
             .nodeify(done);
     });
 
@@ -142,6 +141,7 @@ describe('MLP Color Selector Other Colors (' + desired.browserName + ')', functi
 
     it("should be able to select Classic Silver Metallic", function(done) {
         browser
+            .get("http://toyota.com/yaris")
             .elementByXPath(".//li[2]/i")
             .click()
             .nodeify(done);
