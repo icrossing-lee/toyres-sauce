@@ -27,7 +27,7 @@ wd.configureHttp( {
 
 var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
 desired.name = 'Toyota Yaris MLP with ' + desired.browserName;
-desired.tags = ['helloworld'];
+desired.tags = ['yaris-mlp'];
 
 describe('Toyota Yaris MLP (' + desired.browserName + ')', function() {
     var browser;
@@ -94,6 +94,13 @@ describe('Toyota Yaris MLP (' + desired.browserName + ')', function() {
         browser
             .waitForElementByClassName("is-loaded")
             .elementByClassName("is-loaded").getAttribute("data-code").should.become("1G3")
+            .nodeify(done);
+    });
+
+    it("should be the correct color title", function(done) {
+        browser
+            .elementByClassName("mlp-colorizer-name")
+            .text().should.become("MAGNETIC GRAY METALLIC")
             .nodeify(done);
     });
 });
