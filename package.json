@@ -1,23 +1,23 @@
 {
-  "name": "HelloWorld",
-  "description": "Learning node and sauce.",
+  "name": "Toyota Responsive",
+  "description": "Creating test cases",
   "version": "0.0.1",
-  "homepage": "https://github.com/icrossing-lee/helloworld-sauce",
+  "homepage": "https://github.com/icrossing-lee/toyres-sauce",
   "author": {
     "name": "LeeAlmodovar",
     "email": "lee.almodovar@icrossing.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/icrossing-lee/helloworld-sauce.git"
+    "url": "git://github.com/icrossing-lee/toyres-sauce.git"
   },
   "bugs": {
-    "url": "https://github.com/icrossing-lee/helloworld-sauce/issues"
+    "url": "https://github.com/icrossing-lee/toyres-sauce/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/icrossing-lee/helloworld-sauce/blob/master/LICENSE-MIT"
+      "url": "https://github.com/icrossing-lee/toyres-sauce/blob/master/LICENSE-MIT"
     }
   ],
   "main": "lib/HelloWorld",

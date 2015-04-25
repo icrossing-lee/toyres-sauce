@@ -65,9 +65,9 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should load Toyota Yaris MLP", function(done) {
         browser
-            .get("http://toyota.com/yaris")
+            .get("http://devixd.toyota.com/tcom-ui/molecules/color-selector")
             .title()
-            .should.become("2015 Toyota Yaris | Let's explore your world")
+            .should.become("Color Selector Component")
             .nodeify(done);
     });
 
