@@ -26,8 +26,8 @@ wd.configureHttp( {
 });
 
 var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
-desired.name = 'Toyota Yaris MLP with ' + desired.browserName;
-desired.tags = ['yaris-mlp'];
+desired.name = 'Color Selector Component on ' + desired.browserName;
+desired.tags = ['res-plus'];
 
 describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
     var browser;
@@ -87,7 +87,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Attitude Black Metallic", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[2]")
+            .elementByXPath("//button[3]")
             .click()
             .nodeify(done);
     });
@@ -101,7 +101,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Super White", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[3]")
+            .elementByXPath("//button[4]")
             .click()
             .nodeify(done);
     });
@@ -115,7 +115,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Celestial Silver Metallic", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[4]")
+            .elementByXPath("//button[5]")
             .click()
             .nodeify(done);
     });
@@ -129,7 +129,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Predawn Gray Mica", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[5]")
+            .elementByXPath("//button[6]")
             .click()
             .nodeify(done);
     });
@@ -143,7 +143,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Cosmic Gray Mica", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[6]")
+            .elementByXPath("//button[7]")
             .click()
             .nodeify(done);
     });
@@ -157,7 +157,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Ruby Flare Pearl", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[7]")
+            .elementByXPath("//button[2]")
             .click()
             .nodeify(done);
     });
@@ -171,7 +171,7 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Crème Brulee Mica", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[8]")
+            .elementByXPath("//button[8]")
             .click()
             .nodeify(done);
     });
@@ -185,16 +185,43 @@ describe('MLP Base Color Selector (' + desired.browserName + ')', function() {
 
     it("should be able to select Parisian Night Pearl", function(done) {
         browser
-            .elementByXPath("/html/body/div/div/div[2]/a[9]")
+            .elementByXPath("//button[9]")
             .click()
             .nodeify(done);
     });
 
-    it("verify disabled colors present but not clickable", function(done) {
+    it("should be the correct color selection title as Parisian Night Pearl", function(done) {
         browser
-            .elementByClassName("disabled")
             .elementByClassName("tcom-color-selector-name")
-            .text().should.not.become("BLIZZARD PEARL")
+            .text().should.become("PARISIAN NIGHT PEARL")
+            .nodeify(done);
+    });
+
+    it("should be able to select Blizzard Pearl", function(done) {
+        browser
+            .elementByXPath("//button[10]")
+            .click()
+            .nodeify(done);
+    });
+
+    it("should be the correct color selection title as Blizzard Pearl", function(done) {
+        browser
+            .elementByClassName("tcom-color-selector-name")
+            .text().should.become("BLIZZARD PEARL")
+            .nodeify(done);
+    });
+
+    it("should be able to select Blue Crush Metallic", function(done) {
+        browser
+            .elementByXPath("//button[11]")
+            .click()
+            .nodeify(done);
+    });
+
+    it("should be the correct color selection title as Blue Crush Metallic", function(done) {
+        browser
+            .elementByClassName("tcom-color-selector-name")
+            .text().should.become("BLUE CRUSH METALLIC")
             .nodeify(done);
     });
 });
